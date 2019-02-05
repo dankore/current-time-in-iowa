@@ -18,6 +18,10 @@
             width: 50%;
             margin: auto;      
         }   
+        #container2 {
+        width: 50%;
+        margin: auto;
+        }
         h1 {
             text-align: center;
         } 
@@ -55,8 +59,12 @@
             </div>
         </div>
 </div>
-        <div class="ui card red centered date"><h1></h1>
-        </div>
+<div id="container2" class="container">
+    <div class="ui two stackable cards">
+        <div class="card red day"><h1></h1></div>
+        <div class="card red centered date"><h1></h1></div>
+    </div>
+</div>
         <div class="twitter">
             <a href="https://twitter.com/adamuMdankore" class="twitter-follow-button" data-show-count="false">Follow
                 @TwitterDev</a>
@@ -68,6 +76,7 @@
         const minuteContainer = document.querySelector('.minute > h1');
         const secondContainer = document.querySelector('.second > h1');
         const dateContainer = document.querySelector('.date > h1');
+        const dayContainer = document.querySelector('.day > h1');
 
         // grab time and assign each to a variable
         function setDate() {
@@ -77,6 +86,8 @@
         const  seconds = now.getSeconds();
         const dateToString = now.toLocaleDateString();
 
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 
 
         // display each hour, min , second to their relevant divs selected above    
@@ -84,6 +95,7 @@
         minuteContainer.innerHTML = minutes;
         secondContainer.innerHTML = seconds;
         dateContainer.innerHTML = dateToString;
+        dayContainer.innerHTML = days[now.getDay()];
 
         // increase font size
         hourContainer.style.fontSize = '60px';
