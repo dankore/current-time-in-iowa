@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <style>
+        body {
+            margin-top: 5%;
+            background: lightgray;
+            height: 80vh;
+        }
+        #container {    
+            width: 50%;
+            margin: auto;      
+        }   
+        h1 {
+            text-align: center;
+        } 
+        .content{
+            height: 200px;
+            text-align: center;
+        }
+        .header {
+            padding-top: 20%;
+        }
+        .twitter {
+            text-align: center;
+            margin-top: 8%;
+        }
+    </style>
+    <div id="title" class="ui centered red card"><h1>Current Time in Iowa </h1></div>
+<div id="container" class="ui three stackable raised blue cards">
+        <div class="card">
+            <div class="content">
+                <div class="header hour"><h1></h1></div>
+                <div class="meta">Hours</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <div class="header minute"><h1></h1></div>
+                <div class="meta">Minutes</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <div class="header second"><h1></h1></div>
+                <div class="meta">Seconds</div>
+            </div>
+        </div>
+</div>
+        <div class="ui card red centered date"><h1></h1>
+        </div>
+        <div class="twitter">
+            <a href="https://twitter.com/adamuMdankore" class="twitter-follow-button" data-show-count="false">Follow
+                @TwitterDev</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    <script>
+        // grab relevant divs and assign each to a variable
+        const hourContainer = document.querySelector('.hour > h1');
+        const minuteContainer = document.querySelector('.minute > h1');
+        const secondContainer = document.querySelector('.second > h1');
+        const dateContainer = document.querySelector('.date > h1');
+
+        // grab time and assign each to a variable
+        function setDate() {
+        const now = new Date();
+        const hour = now.getHours();
+        const minutes = now.getMinutes();
+        const  seconds = now.getSeconds();
+        const dateToString = now.toLocaleDateString();
+
+
+
+        // display each hour, min , second to their relevant divs selected above    
+        hourContainer.innerHTML = hour;
+        minuteContainer.innerHTML = minutes;
+        secondContainer.innerHTML = seconds;
+        dateContainer.innerHTML = dateToString;
+
+        // increase font size
+        hourContainer.style.fontSize = '60px';
+        minuteContainer.style.fontSize = '60px';
+        secondContainer.style.fontSize = '60px';
+
+
+
+        }
+        setInterval(setDate, 1000);
+
+    </script>
+</body>
+</html>
